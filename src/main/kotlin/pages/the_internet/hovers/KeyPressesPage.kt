@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.interactions.Actions
 
-class KeyPressesPage(val driver: WebDriver) {
+class KeyPressesPage(private val driver: WebDriver) {
     private val result = By.id("result")
     private val target = By.id("target")
 

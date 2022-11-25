@@ -11,7 +11,7 @@ import pages.the_internet.hovers.DragDropPage
 import pages.the_internet.hovers.HoverPage
 import pages.the_internet.hovers.KeyPressesPage
 
-class TheInternetHerokuappPage(val driver: WebDriver) {
+class TheInternetHerokuappPage(private val driver: WebDriver) {
     private val linkHovers = By.linkText("Hovers")
     private val linkDragDrop = By.linkText("Drag and Drop")
     private val linkKeyPresses = By.linkText("Key Presses")
@@ -20,8 +20,7 @@ class TheInternetHerokuappPage(val driver: WebDriver) {
     fun clickLinkHovers(): HoverPage {
         driver.findElement(linkHovers).click()
 
-        WebDriverWait(driver, 60)
-            .until(ExpectedConditions.elementToBeClickable(driver.findElement(content)))
+        WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOf(driver.findElement(content)))
 
         return HoverPage(driver)
     }
@@ -30,8 +29,7 @@ class TheInternetHerokuappPage(val driver: WebDriver) {
         driver.manage().window().maximize()
         driver.findElement(linkDragDrop).click()
 
-        WebDriverWait(driver, 60)
-            .until(ExpectedConditions.elementToBeClickable(driver.findElement(content)))
+        WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOf(driver.findElement(content)))
 
         return DragDropPage(driver)
     }
@@ -40,10 +38,8 @@ class TheInternetHerokuappPage(val driver: WebDriver) {
         driver.manage().window().maximize()
         driver.findElement(linkKeyPresses).click()
 
-        WebDriverWait(driver, 60)
-            .until(ExpectedConditions.elementToBeClickable(driver.findElement(content)))
+        WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOf(driver.findElement(content)))
 
         return KeyPressesPage(driver)
     }
-
 }

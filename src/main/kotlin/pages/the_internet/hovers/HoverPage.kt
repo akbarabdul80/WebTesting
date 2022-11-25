@@ -4,10 +4,8 @@ import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.interactions.Actions
-import org.openqa.selenium.support.ui.ExpectedConditions
-import org.openqa.selenium.support.ui.WebDriverWait
 
-class HoverPage(val driver: WebDriver) {
+class HoverPage(private val driver: WebDriver) {
     private var action: Actions = Actions(driver)
     private val imageFigure = By.className("figure")
     private val figcaption = By.className("figcaption")

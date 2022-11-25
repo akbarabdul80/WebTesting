@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
-import org.openqa.selenium.firefox.FirefoxDriver
-import pages.SearchPage
 import pages.the_internet.TheInternetHerokuappPage
 import kotlin.test.assertEquals
 
@@ -25,14 +23,14 @@ class InternerHorokuappTest {
         ChromeDriver()
     }
 
-    @AfterEach
-    fun tearDown() {
-        webDriver.quit()
-    }
-
     @BeforeEach
     fun setUp() {
         webDriver.get("https://the-internet.herokuapp.com/")
+    }
+
+    @AfterEach
+    fun tearDown() {
+        webDriver.quit()
     }
 
     @Test
